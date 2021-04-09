@@ -8,9 +8,9 @@ date: "2021-04-09"
 
 So, as you can probably tell by that _amazingly creative_ quote, this blog site has an API. This post will be a short tutorial on how to use it.
 
-The endpoint is `{BASE_URL}/api/posts/{POST_ID}`, where `{BASE_URL}` is the base URL of this site (currently http://localhost:3000), and `{POST_ID}` is the id of the post you're requesting.
+The endpoint is `{BASE_URL}/api/posts/{POST_ID}`, where `{BASE_URL}` is the base URL of this site (currently https://nextjs-blog.hairyotter07.vercel.app), and `{POST_ID}` is the id of the post you're requesting.
 
-To get a single post, use a request library, such as `node-fetch` or `sync-fetch` in Node.JS, or `requests` in Python, and make a GET request to the endpoint, making sure to replace `{POST_ID}` with the id of the post you'd like. (e.g. `http://localhost:3000/api/posts/api-tutorial`)
+To get a single post, use a request library, such as `node-fetch` or `sync-fetch` in Node.JS, or `requests` in Python, and make a GET request to the endpoint, making sure to replace `{POST_ID}` with the id of the post you'd like. (e.g. `https://nextjs-blog.hairyotter07.vercel.app/api/posts/api-tutorial`)
 
 The response will be a JSON object of the form:
 ```
@@ -21,6 +21,16 @@ The response will be a JSON object of the form:
         date: "post_date",
         html: "post_rendered_html",
         raw_md: "raw_post"
+    }
+}
+```
+
+And if it errors, the response will be a JSON object of the form:
+```
+{
+    error: {
+        message: "error_message",
+        id: "post_id"
     }
 }
 ```
